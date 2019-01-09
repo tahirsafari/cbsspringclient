@@ -11,7 +11,7 @@
 	<groupId>com.todo</groupId>
 	<artifactId>todo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>todo</name>
+	<name>tahir_springboot_cbsclient</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>

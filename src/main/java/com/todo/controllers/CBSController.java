@@ -30,7 +30,8 @@ public class CBSController {
 	@GetMapping(value = "/authenticate")
 	public _UserAuthInfo authenticate() throws Exception, CbsException {
 		DataAccessReplicaController controller = new DataAccessReplicaController();
-        return controller.db_get_User_AuthInfo_ByUserId(template, 1000008);
+            
+                return controller.db_get_User_AuthInfo_ByUserId(template, 1000008);
 
 	}
 	
@@ -40,6 +41,26 @@ public class CBSController {
         DataAccessReplicaController controller = new DataAccessReplicaController();
         return controller.db_update_SysConfigParam(template, 1000008, 1, "P001", "Merchant_Reg_Monthly_Charges", "10");
 
+	}
+        
+        @GetMapping(value = "/someendpoint")
+	public boolean serviceMethod()  {
+        
+            //depending on some condition, ServiceX will be invoked
+            Service1 obj = new Service1();
+            String result = obj.process();
+            
+            ServiceBase srvcObj = null;
+            if(1 = 1){
+                srvcObj =new Service1();
+            } else if (){
+                srvcObj =new Service2();
+            }
+            
+            srvcObj.process();
+            return result;
+            
+       
 	}
 	
 	
