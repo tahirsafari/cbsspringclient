@@ -5,25 +5,23 @@
  */
 package com.todo.cbs;
 
+import com.safari.pg.util._UserAuthInfo;
+
 /**
  *
  * @author Safarifone
  */
 public class CbsAuthInterface {
     
-    CbsDataAccessController cac = null;
+    CbsDataAccessController cac;
     
     public CbsAuthInterface (CbsAgent ca){        
         cac = new CbsDataAccessController(ca);
     }
     
-    public String someAction(String input){
+    public _UserAuthInfo someAction(String input){
         
-        String dbresult = cac.someDbCall("input params");
+        return cac.db_get_User_AuthInfo_ByUserId(Integer.parseInt(input));
         
-        
-        String custom_obj = dbresult;
-        
-        return custom_obj;
     }
 }

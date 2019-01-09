@@ -61,7 +61,7 @@ public class DBConfiguration {
         return dataSource;
     }
     
-	  @Bean
+	  @Bean("dbManager")
 	  @ConditionalOnBean(name = "dataSource")
 	  @ConditionalOnMissingBean
 	  public JdbcTemplate jdbcTemplate() {
@@ -73,5 +73,10 @@ public class DBConfiguration {
 	  @ConditionalOnMissingBean
 	  public DBManager dbManager() {
 		  return new DBManager(jdbcTemplate());
+	  }
+	  
+	  @Bean
+	  public SpringApplicationContext applicationContext() {
+		  return new SpringApplicationContext();
 	  }
 }

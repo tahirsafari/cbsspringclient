@@ -5,7 +5,8 @@
  */
 package com.todo.services;
 
-
+import com.safari.pg.util._UserAuthInfo;
+import com.todo.cbs.CbsAuthInterface;
 
 /**
  *
@@ -18,20 +19,20 @@ public class Service1 extends ServiceBase {
     }
     
     @Override
-    public String process(String input){
-        init();
+    public _UserAuthInfo process(String input){
+        //init();
         
         
         //use cbs services
         //for ex
-        
-        CbsAuthInterface ai = new CbsAuthInterface(ca);
-        String result_obj = ai.someAction();
-        
+//        
+//        CbsAuthInterface ai = new CbsAuthInterface(ca);
+//        String result_obj = ai.someAction("");
+       return super.process(input);
                 
-        close();    
+        //close();    
         
-        return "somedata";
+        //return "somedata";
     }
     
 }

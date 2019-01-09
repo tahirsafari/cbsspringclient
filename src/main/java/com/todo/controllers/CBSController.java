@@ -14,6 +14,8 @@ import com.safari.pg.util.CbsException;
 import com.safari.pg.util._UserAuthInfo;
 import com.todo.DBManager;
 import com.todo.DataAccessReplicaController;
+import com.todo.services.Service1;
+import com.todo.services.ServiceBase;
 
 @RestController
 @RequestMapping("/cbs")
@@ -23,8 +25,8 @@ public class CBSController {
     DataSource dataSource;
     @Autowired
     JdbcTemplate template;
-    @Autowired
-    DBManager dataManager;
+//    @Autowired
+//    DBManager dbManager;
     private static final Logger logger = LogManager.getLogger(CBSController.class);
     
 	@GetMapping(value = "/authenticate")
@@ -44,20 +46,18 @@ public class CBSController {
 	}
         
         @GetMapping(value = "/someendpoint")
-	public boolean serviceMethod()  {
+	public _UserAuthInfo serviceMethod()  {
         
             //depending on some condition, ServiceX will be invoked
-            Service1 obj = new Service1();
-            String result = obj.process();
+//            Service1 obj = new Service1();
+//            String result = obj.process();
             
             ServiceBase srvcObj = null;
-            if(1 = 1){
+            if(1 == 1){
                 srvcObj =new Service1();
-            } else if (){
-                srvcObj =new Service2();
-            }
+            } 
             
-            srvcObj.process();
+            _UserAuthInfo result = srvcObj.process("1000008");
             return result;
             
        

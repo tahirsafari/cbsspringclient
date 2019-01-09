@@ -1,7 +1,9 @@
 package com.todo;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
 
+@Component
 public class DBManager {
 	
 	private static JdbcTemplate jdbcTemplate;

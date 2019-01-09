@@ -11,19 +11,20 @@ package com.todo.cbs;
  */
 public class CbsShInterface {
     
-     CbsDataAccessController cac = null;
+     CbsDataAccessController cac;
     
     public CbsShInterface (CbsAgent ca){        
         cac = new CbsDataAccessController(ca);
     }
     
     public String someAction(String input){
-        
-        String dbresult = cac.someDbCall("input params");
-        
-        
-        String custom_obj = dbresult;
-        
-        return custom_obj;
+//        
+//        String dbresult = cac.someDbCall("input params");
+//        
+//        
+//        String custom_obj = dbresult;
+//        
+//        return custom_obj;
+    	return null;
     }
 }
