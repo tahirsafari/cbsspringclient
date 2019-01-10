@@ -16,8 +16,8 @@ import com.todo.cbs.CbsAuthInterface;
  */
 public class Service1 extends ServiceBase {
     
-    public Service1(JdbcTemplate jdbcTemplat){
-        super(jdbcTemplat);
+    public Service1(){
+        super();
     }
     
     @Override

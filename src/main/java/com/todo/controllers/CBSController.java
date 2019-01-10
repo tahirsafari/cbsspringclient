@@ -18,10 +18,10 @@ import com.todo.services.ServiceBase;
 @RequestMapping("/cbs")
 public class CBSController {
 
-    @Autowired
-    DataSource dataSource;
-    @Autowired
-    JdbcTemplate template;
+//    @Autowired
+//    DataSource dataSource;
+//    @Autowired
+//    JdbcTemplate template;
 
     private static final Logger logger = LogManager.getLogger(CBSController.class);
     
@@ -35,7 +35,7 @@ public class CBSController {
             
         ServiceBase srvcObj = null;
         if(1 == 1){
-            srvcObj =new Service1(template);
+            srvcObj =new Service1();
         } 
         
         _UserAuthInfo result = srvcObj.process("1000008");

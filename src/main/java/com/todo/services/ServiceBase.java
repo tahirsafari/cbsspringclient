@@ -21,7 +21,10 @@ public class ServiceBase {
     CbsAgent ca;
     
     
-    public ServiceBase(JdbcTemplate jdbcTemplate) {
+    public ServiceBase() {
+        SpringApplicationContext appContext = new SpringApplicationContext();
+    	jdbcTemplate = appContext.getContext().getBean("jdbcTemplate",JdbcTemplate.class );
+
     	this.ca = new CbsAgent(jdbcTemplate);
     	
     }
