@@ -5,6 +5,8 @@
  */
 package com.todo.cbs;
 
+import com.safari.pg.util._UserAuthInfo;
+
 /**
  *
  * @author Safarifone
@@ -17,7 +19,7 @@ public class CbsShInterface {
         cac = new CbsDataAccessController(ca);
     }
     
-    public String someAction(String input){
+    public _UserAuthInfo someAction(String input){
 //        
 //        String dbresult = cac.someDbCall("input params");
 //        
@@ -25,6 +27,6 @@ public class CbsShInterface {
 //        String custom_obj = dbresult;
 //        
 //        return custom_obj;
-    	return null;
+    	return cac.db_get_User_AuthInfo_ByUserId(Integer.parseInt(input));
     }
 }

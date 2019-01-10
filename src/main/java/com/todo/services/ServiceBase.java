@@ -7,6 +7,7 @@ package com.todo.services;
 
 import com.safari.pg.util._UserAuthInfo;
 import com.todo.cbs.CbsAgent;
+import com.todo.cbs.CbsAuthInterface;
 import com.todo.cbs.CbsDataAccessController;
 
 /**
@@ -16,18 +17,18 @@ import com.todo.cbs.CbsDataAccessController;
 public class ServiceBase {
     
     CbsAgent ca;
-    CbsDataAccessController cbsController;
     
     
     public ServiceBase() {
     	this.ca = new CbsAgent();
-    	cbsController = new CbsDataAccessController(this.ca);
+    	
     }
 //    public void init(){
 //        ca = new CbsAgent();
 //    }
     public _UserAuthInfo process(String si){
-    	return cbsController.db_get_User_AuthInfo_ByUserId(Integer.parseInt(si));
+    	CbsAuthInterface ai = new CbsAuthInterface(ca);
+    	return ai.someAction(si);
     }
 //    public void close(){
 //        
