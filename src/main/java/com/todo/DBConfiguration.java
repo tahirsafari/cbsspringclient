@@ -14,7 +14,6 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.Ordered;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.todo.DBManager;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -61,19 +60,13 @@ public class DBConfiguration {
         return dataSource;
     }
     
-	  @Bean("dbManager")
+	  @Bean("jdbcTemplate")
 	  @ConditionalOnBean(name = "dataSource")
 	  @ConditionalOnMissingBean
 	  public JdbcTemplate jdbcTemplate() {
 		  return new JdbcTemplate(dataSource());
 	  }
 	  
-	  @Bean
-	  @ConditionalOnBean(name = "jdbcTemplate")
-	  @ConditionalOnMissingBean
-	  public DBManager dbManager() {
-		  return new DBManager(jdbcTemplate());
-	  }
 	  
 	  @Bean
 	  public SpringApplicationContext applicationContext() {

@@ -8,9 +8,9 @@ package com.todo.cbs;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.todo.DBManager;
 import com.todo.SpringApplicationContext;
 
 /**
@@ -21,15 +21,15 @@ import com.todo.SpringApplicationContext;
 public class CbsAgent {
 
 	
-	private DBManager dbManager;
+	private JdbcTemplate jdbcTemplate;
     public CbsAgent(){
     	SpringApplicationContext appContext = new SpringApplicationContext();
-    	dbManager = appContext.getContext().getBean("dbManager",DBManager.class );
+    	jdbcTemplate = appContext.getContext().getBean("jdbcTemplate",JdbcTemplate.class );
 
     }
     
     public Connection getConnection() throws SQLException {
-        return dbManager.getJdbcTemplate().getDataSource().getConnection();
+        return jdbcTemplate.getDataSource().getConnection();
     }
     
 }

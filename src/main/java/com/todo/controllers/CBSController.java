@@ -10,10 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.safari.pg.util.CbsException;
 import com.safari.pg.util._UserAuthInfo;
-import com.todo.DBManager;
-import com.todo.DataAccessReplicaController;
 import com.todo.services.Service1;
 import com.todo.services.ServiceBase;
 
@@ -25,40 +22,24 @@ public class CBSController {
     DataSource dataSource;
     @Autowired
     JdbcTemplate template;
-//    @Autowired
-//    DBManager dbManager;
+
     private static final Logger logger = LogManager.getLogger(CBSController.class);
     
-	@GetMapping(value = "/authenticate")
-	public _UserAuthInfo authenticate() throws Exception, CbsException {
-		DataAccessReplicaController controller = new DataAccessReplicaController();
-            
-                return controller.db_get_User_AuthInfo_ByUserId(template, 1000008);
-
-	}
-	
-	@GetMapping(value = "/config")
-	public boolean updateConfigParam() throws Exception, CbsException {
-        
-        DataAccessReplicaController controller = new DataAccessReplicaController();
-        return controller.db_update_SysConfigParam(template, 1000008, 1, "P001", "Merchant_Reg_Monthly_Charges", "10");
-
-	}
-        
-        @GetMapping(value = "/someendpoint")
+  
+    @GetMapping(value = "/someendpoint")
 	public _UserAuthInfo serviceMethod()  {
         
-            //depending on some condition, ServiceX will be invoked
-//            Service1 obj = new Service1();
-//            String result = obj.process();
+        //depending on some condition, ServiceX will be invoked
+    	//Service1 obj = new Service1();
+        //String result = obj.process();
             
-            ServiceBase srvcObj = null;
-            if(1 == 1){
-                srvcObj =new Service1();
-            } 
-            
-            _UserAuthInfo result = srvcObj.process("1000008");
-            return result;
+        ServiceBase srvcObj = null;
+        if(1 == 1){
+            srvcObj =new Service1();
+        } 
+        
+        _UserAuthInfo result = srvcObj.process("1000008");
+        return result;
             
        
 	}
