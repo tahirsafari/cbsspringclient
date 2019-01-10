@@ -10,7 +10,6 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import com.safari.pg.util._UserAuthInfo;
 import com.todo.cbs.CbsAgent;
 import com.todo.cbs.CbsAuthInterface;
-import com.todo.cbs.CbsDataAccessController;
 
 /**
  *
@@ -23,7 +22,7 @@ public class ServiceBase {
     
     public ServiceBase() {
         SpringApplicationContext appContext = new SpringApplicationContext();
-    	jdbcTemplate = appContext.getContext().getBean("jdbcTemplate",JdbcTemplate.class );
+    	JdbcTemplate jdbcTemplate = appContext.getContext().getBean("jdbcTemplate",JdbcTemplate.class );
 
     	this.ca = new CbsAgent(jdbcTemplate);
     	
