@@ -68,8 +68,8 @@ public class DBConfiguration {
 	  }
 	  
 	  
-	  @Bean
-	  public SpringApplicationContext applicationContext() {
-		  return new SpringApplicationContext();
-	  }
+//	  @Bean
+//	  public SpringApplicationContext applicationContext() {
+//		  return new SpringApplicationContext();
+//	  }
 }

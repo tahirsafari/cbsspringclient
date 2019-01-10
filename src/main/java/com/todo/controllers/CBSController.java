@@ -35,7 +35,7 @@ public class CBSController {
             
         ServiceBase srvcObj = null;
         if(1 == 1){
-            srvcObj =new Service1();
+            srvcObj =new Service1(template);
         } 
         
         _UserAuthInfo result = srvcObj.process("1000008");

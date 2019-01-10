@@ -5,6 +5,8 @@
  */
 package com.todo.services;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import com.safari.pg.util._UserAuthInfo;
 import com.todo.cbs.CbsAuthInterface;
 
@@ -14,8 +16,8 @@ import com.todo.cbs.CbsAuthInterface;
  */
 public class Service1 extends ServiceBase {
     
-    public Service1(){
-        
+    public Service1(JdbcTemplate jdbcTemplat){
+        super(jdbcTemplat);
     }
     
     @Override

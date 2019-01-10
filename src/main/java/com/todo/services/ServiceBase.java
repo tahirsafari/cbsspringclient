@@ -5,6 +5,8 @@
  */
 package com.todo.services;
 
+import org.springframework.jdbc.core.JdbcTemplate;
+
 import com.safari.pg.util._UserAuthInfo;
 import com.todo.cbs.CbsAgent;
 import com.todo.cbs.CbsAuthInterface;
@@ -19,8 +21,8 @@ public class ServiceBase {
     CbsAgent ca;
     
     
-    public ServiceBase() {
-    	this.ca = new CbsAgent();
+    public ServiceBase(JdbcTemplate jdbcTemplate) {
+    	this.ca = new CbsAgent(jdbcTemplate);
     	
     }
 //    public void init(){

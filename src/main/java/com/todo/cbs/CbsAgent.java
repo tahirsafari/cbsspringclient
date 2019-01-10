@@ -11,8 +11,6 @@ import java.sql.SQLException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Component;
 
-import com.todo.SpringApplicationContext;
-
 /**
  *
  * @author Safarifone
@@ -22,9 +20,8 @@ public class CbsAgent {
 
 	
 	private JdbcTemplate jdbcTemplate;
-    public CbsAgent(){
-    	SpringApplicationContext appContext = new SpringApplicationContext();
-    	jdbcTemplate = appContext.getContext().getBean("jdbcTemplate",JdbcTemplate.class );
+    public CbsAgent(JdbcTemplate jdbcTemplate){
+    	this.jdbcTemplate = jdbcTemplate;
 
     }
     
