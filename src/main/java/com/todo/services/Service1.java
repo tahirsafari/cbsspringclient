@@ -7,8 +7,9 @@ package com.todo.services;
 
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.safari.pg.util._UserAuthInfo;
-import com.todo.cbs.CbsAuthInterface;
+import com.safari.pg.cbs.def.CbsException;
+import com.safari.pg.cbs.def._UserAuthInfo;
+
 
 /**
  *
@@ -21,7 +22,7 @@ public class Service1 extends ServiceBase {
     }
     
     @Override
-    public _UserAuthInfo process(String input){
+    public String mapService(String input) throws Exception{
         //init();
         
         
@@ -30,11 +31,11 @@ public class Service1 extends ServiceBase {
 //        
 //        CbsAuthInterface ai = new CbsAuthInterface(ca);
 //        String result_obj = ai.someAction("");
-       return super.process(input);
+       //return super.mapService(input);
                 
         //close();    
         
-        //return "somedata";
+        return "somedata";
     }
     
 }

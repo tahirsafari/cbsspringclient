@@ -1,6 +1,11 @@
 package com.todo;
 
 
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 import javax.sql.DataSource;
 
 import org.apache.catalina.core.ApplicationContext;
@@ -19,7 +24,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
 @SpringBootApplication
-@ComponentScan("com.todo.controllers")
+@ComponentScan({"com.todo.controllers", "com.todo.exceptions"})
 //@Configuration
 
 public class TodoApplication {
@@ -27,6 +32,8 @@ public class TodoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(TodoApplication.class, args);
 	}
+	
+
 
 
 }
