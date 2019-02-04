@@ -21,6 +21,7 @@ import com.safari.pg.cbs.def.CbsException;
 import com.safari.pg.cbs.def._MerchantFavCustomer;
 import com.safari.pg.cbs.def._MerchantSetting;
 
+
 /**
  *
  * @author Safarifone
@@ -33,7 +34,7 @@ public class ServiceBase {
     
     public ServiceBase() {
         SpringApplicationContext appContext = new SpringApplicationContext();
-    	jdbcTemplate = appContext.getContext().getBean("jdbcTemplate",JdbcTemplate.class );
+    	JdbcTemplate jdbcTemplate = appContext.getContext().getBean("jdbcTemplate",JdbcTemplate.class );
 
     	this.ca = new CbsAgent(jdbcTemplate);
     	
