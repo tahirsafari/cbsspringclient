@@ -11,10 +11,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.safari.pg.cbs.def.CbsException;
+import com.safari.pg.cbs.def._CashierInfo;
 import com.safari.pg.cbs.def._MerchantFavCustomer;
 import com.safari.pg.cbs.def._MerchantSetting;
 import com.safari.pg.cbs.def._UserAuthInfo;
@@ -93,6 +96,20 @@ public class CBSController {
 		}
 		_MerchantFavCustomer list = srvcObj.getMerchantSettingsWhenCodeIsEmpty(100);
 		return new ResponseEntity<_MerchantFavCustomer>(list, HttpStatus.OK); 
+            
+       
+	}
+	
+    @GetMapping(value = "/cashier/userId/{userId}")
+	public ResponseEntity<_CashierInfo> getCashierInfoByUserId(@PathVariable("userId") int userId) throws Exception  {
+    
+        
+		ServiceBase srvcObj = null;
+		if(1 == 1){
+			srvcObj =new Service1();
+		}
+		_CashierInfo list = srvcObj.getCashierInfoByUserId(userId);
+		return new ResponseEntity<_CashierInfo>(list, HttpStatus.OK); 
             
        
 	}

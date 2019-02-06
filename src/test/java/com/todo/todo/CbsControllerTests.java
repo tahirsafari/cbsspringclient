@@ -89,4 +89,15 @@ public class CbsControllerTests {
 //				.andExpect(jsonPath("$[0].firstName").value("David"))
 				.andDo(print());
 	}
+
+	@Test
+	public void getCashierInfoByUserId() throws Exception{
+		mockMvc.perform(get("/cbs/cashier/userId/1000008"))
+				.andExpect(status().isOk())
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+				//.andExpect(jsonPath("$", hasSize(1)))
+//				.andExpect(jsonPath("$[0].id").value(1L))
+//				.andExpect(jsonPath("$[0].firstName").value("David"))
+				.andDo(print());
+	}
 }

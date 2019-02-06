@@ -18,6 +18,7 @@ import com.safari.pg.cbsint.CbsShInterface;
 import com.safari.pg.cbs.dataaccess.CbsDataAccessController;
 import com.safari.pg.cbs.def.CbsConstants;
 import com.safari.pg.cbs.def.CbsException;
+import com.safari.pg.cbs.def._CashierInfo;
 import com.safari.pg.cbs.def._MerchantFavCustomer;
 import com.safari.pg.cbs.def._MerchantSetting;
 
@@ -74,6 +75,13 @@ public class ServiceBase {
     	CbsShInterface chInterface = new  CbsShInterface(this.ca);
     	//ServiceUdr service = new ServiceUdr(chInterface);
     	return chInterface.getMerchantFavCustomer(100, "");
+    	//return null;
+    }
+    
+    public _CashierInfo getCashierInfoByUserId(int  input) throws Exception {
+    	CbsShInterface chInterface = new  CbsShInterface(this.ca);
+    	//ServiceUdr service = new ServiceUdr(chInterface);
+    	return chInterface.getCashierInfoByUserId(input);
     	//return null;
     }
 }
