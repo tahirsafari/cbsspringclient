@@ -22,6 +22,8 @@ import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.todo.dtos.MerchantTransactionDto;
+import com.todo.dtos.WebPermissionDto;
 
 @RunWith(SpringRunner.class)
 //@ActiveProfiles(value="test")
@@ -98,6 +100,33 @@ public class CbsControllerTests {
 				//.andExpect(jsonPath("$", hasSize(1)))
 //				.andExpect(jsonPath("$[0].id").value(1L))
 //				.andExpect(jsonPath("$[0].firstName").value("David"))
+				.andDo(print());
+	}
+	@Test
+	public void getMerchantTransactionsById() throws Exception{
+		MerchantTransactionDto merchantDto = new MerchantTransactionDto();
+		merchantDto.setMerchantId(10001);
+		merchantDto.setStatusId(3);
+		merchantDto.setRecordCount(0);
+		merchantDto.setStartDate("17-11-2017");
+		merchantDto.setEndDate("12-01-2019");
+		mockMvc.perform(post("/cbs/merchant/transation", merchantDto))
+				.andExpect(status().isOk())
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON))
+				//.andExpect(jsonPath("$", hasSize(1)))
+//				.andExpect(jsonPath("$[0].id").value(1L))
+//				.andExpect(jsonPath("$[0].firstName").value("David"))
+				.andDo(print());
+	}
+	@Test
+	public void createWebPermission() throws Exception{
+		WebPermissionDto permissionDto = new WebPermissionDto(-1, "Test", "Desc");
+		
+		mockMvc.perform(post("/cbs/create/webPermission")
+		        .contentType(MediaType.APPLICATION_JSON_UTF8_VALUE)
+		        .content(objectMapper.writeValueAsString(permissionDto)))
+				.andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
+				.andExpect(status().isInternalServerError())
 				.andDo(print());
 	}
 }

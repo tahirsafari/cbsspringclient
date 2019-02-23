@@ -17,7 +17,7 @@ import com.safari.pg.cbs.def._UserAuthInfo;
  */
 public class Service1 extends ServiceBase {
     
-    public Service1(){
+    public Service1() throws CbsException{
         super();
     }
     

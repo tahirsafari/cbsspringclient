@@ -23,9 +23,11 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
+import springfox.documentation.swagger2.annotations.EnableSwagger2;
+
 @SpringBootApplication
 @ComponentScan({"com.todo.controllers", "com.todo.exceptions"})
-//@Configuration
+@EnableSwagger2
 
 public class TodoApplication {
 
