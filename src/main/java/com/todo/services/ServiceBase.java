@@ -42,7 +42,7 @@ public class ServiceBase {
     
     
     
-    public ServiceBase() throws CbsException {
+    public ServiceBase() throws CbsInterfaceException, CbsException {
         SpringApplicationContext appContext = new SpringApplicationContext();
     	JdbcTemplate jdbcTemplate = appContext.getContext().getBean("jdbcTemplate",JdbcTemplate.class );
 

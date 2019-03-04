@@ -22,7 +22,7 @@ import com.todo.TodoApplication;
 @ActiveProfiles(value="test")
 @SpringBootTest(classes = TodoApplication.class)
 @AutoConfigureWebMvc
-public class UpdateServiceProfileTests {
+public class CreateServiceTests {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	CbsAgent ca;
@@ -35,39 +35,28 @@ public class UpdateServiceProfileTests {
 	}
 	
 	@Test
-	public void updateServiceProfile() throws Exception {
-		int serviceId = 2;
+	public void createService() throws Exception {
+		String serviceCode = "M2A";
 		String serviceProfileDesc = "desc";
-		int serviceChargeModeId = 1;
-		int maxOutTxAmount = 10;
-		int minOutTxAmount = 2;
-		int maxInTxAmount = 10;
-		int minInTxAmount = 5;
-		int dailyInTxLimit = 12;
-		int dailyOutTxLimit = 13;
-		int monthlyInTxLimit = 5;
-		int monthlyOutTxLimit = 6;
-		
-		boolean  result = chInterface.updateServiceProfile(serviceId, serviceProfileDesc, serviceChargeModeId, maxOutTxAmount, minOutTxAmount, maxInTxAmount, minInTxAmount, dailyInTxLimit, dailyOutTxLimit, monthlyInTxLimit, monthlyOutTxLimit);
+		int isActive = 1;
+		int isTransactional = 10;
+		int createdByUserId = 1;
+	
+		int  result = chInterface.createService(serviceCode, serviceProfileDesc, isActive, isTransactional, createdByUserId);
 		System.out.println("result "+result);
-		assertTrue(result);
+		assertTrue(result > 0);
 	}
 	
 	@Test(expected=CbsInterfaceException.class)
-	public void updateServiceProfile_ThrowsException() throws Exception {
-		int serviceId = 2;
-		String serviceProfileDesc = "";
-		int serviceChargeModeId = 1;
-		int maxOutTxAmount = 10;
-		int minOutTxAmount = 2;
-		int maxInTxAmount = 10;
-		int minInTxAmount = 5;
-		int dailyInTxLimit = 12;
-		int dailyOutTxLimit = 13;
-		int monthlyInTxLimit = 5;
-		int monthlyOutTxLimit = 6;
-		
-		boolean  result = chInterface.updateServiceProfile(serviceId, serviceProfileDesc, serviceChargeModeId, maxOutTxAmount, minOutTxAmount, maxInTxAmount, minInTxAmount, dailyInTxLimit, dailyOutTxLimit, monthlyInTxLimit, monthlyOutTxLimit);
+	public void createService_ThrowsException() throws Exception {
+		String serviceCode = "";
+		String serviceProfileDesc = "desc";
+		int isActive = 1;
+		int isTransactional = 10;
+		int createdByUserId = 1;
+	
+		int  result = chInterface.createService(serviceCode, serviceProfileDesc, isActive, isTransactional, createdByUserId);
 		System.out.println("result "+result);
+		assertTrue(result > 0);
 	}
 }

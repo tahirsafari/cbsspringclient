@@ -8,6 +8,7 @@ package com.todo.services;
 import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.safari.pg.cbs.def.CbsException;
+import com.safari.pg.cbs.def.CbsInterfaceException;
 import com.safari.pg.cbs.def._UserAuthInfo;
 
 
@@ -17,7 +18,7 @@ import com.safari.pg.cbs.def._UserAuthInfo;
  */
 public class Service1 extends ServiceBase {
     
-    public Service1() throws CbsException{
+    public Service1() throws CbsInterfaceException, CbsException{
         super();
     }
     

@@ -29,11 +29,10 @@ public class CreateProductServiceProfileTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsInterfaceException, CbsException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
-	
 	@Test
 	public void createProductServiceProfile() throws Exception {
 		int createdByUserId = 1;

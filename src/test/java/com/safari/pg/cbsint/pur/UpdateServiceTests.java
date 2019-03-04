@@ -22,7 +22,7 @@ import com.todo.TodoApplication;
 @ActiveProfiles(value="test")
 @SpringBootTest(classes = TodoApplication.class)
 @AutoConfigureWebMvc
-public class UpdateServiceProfileTests {
+public class UpdateServiceTests {
 	@Autowired
 	JdbcTemplate jdbcTemplate;
 	CbsAgent ca;
@@ -35,39 +35,26 @@ public class UpdateServiceProfileTests {
 	}
 	
 	@Test
-	public void updateServiceProfile() throws Exception {
-		int serviceId = 2;
+	public void updateService() throws Exception {
+		String serviceCode = "M2A";
+		int serviceId = 1;
 		String serviceProfileDesc = "desc";
-		int serviceChargeModeId = 1;
-		int maxOutTxAmount = 10;
-		int minOutTxAmount = 2;
-		int maxInTxAmount = 10;
-		int minInTxAmount = 5;
-		int dailyInTxLimit = 12;
-		int dailyOutTxLimit = 13;
-		int monthlyInTxLimit = 5;
-		int monthlyOutTxLimit = 6;
-		
-		boolean  result = chInterface.updateServiceProfile(serviceId, serviceProfileDesc, serviceChargeModeId, maxOutTxAmount, minOutTxAmount, maxInTxAmount, minInTxAmount, dailyInTxLimit, dailyOutTxLimit, monthlyInTxLimit, monthlyOutTxLimit);
+		int isActive = 1;
+		int isTransactional = 10;
+	
+		boolean  result = chInterface.updateService(serviceId, serviceCode, serviceProfileDesc, isActive, isTransactional);
 		System.out.println("result "+result);
 		assertTrue(result);
 	}
 	
 	@Test(expected=CbsInterfaceException.class)
-	public void updateServiceProfile_ThrowsException() throws Exception {
-		int serviceId = 2;
-		String serviceProfileDesc = "";
-		int serviceChargeModeId = 1;
-		int maxOutTxAmount = 10;
-		int minOutTxAmount = 2;
-		int maxInTxAmount = 10;
-		int minInTxAmount = 5;
-		int dailyInTxLimit = 12;
-		int dailyOutTxLimit = 13;
-		int monthlyInTxLimit = 5;
-		int monthlyOutTxLimit = 6;
-		
-		boolean  result = chInterface.updateServiceProfile(serviceId, serviceProfileDesc, serviceChargeModeId, maxOutTxAmount, minOutTxAmount, maxInTxAmount, minInTxAmount, dailyInTxLimit, dailyOutTxLimit, monthlyInTxLimit, monthlyOutTxLimit);
-		System.out.println("result "+result);
+	public void updateService_ThrowsException() throws Exception {
+		String serviceCode = "";
+		int serviceId = 1;
+		String serviceProfileDesc = "desc";
+		int isActive = 1;
+		int isTransactional = 10;
+	
+		chInterface.updateService(serviceId, serviceCode, serviceProfileDesc, isActive, isTransactional);
 	}
 }
