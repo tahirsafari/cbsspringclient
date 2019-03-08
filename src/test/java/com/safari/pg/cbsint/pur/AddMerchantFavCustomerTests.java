@@ -29,7 +29,7 @@ public class AddMerchantFavCustomerTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -45,13 +45,13 @@ public class AddMerchantFavCustomerTests {
 		assertTrue(result > 0);
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void addMerchantFavCustomer_ThrowsException() throws CbsInterfaceException, CbsException {
-		int cuserId = 10;
-		int merchantId = 10001;
-		String custAccountNo = "";
-		int bonuspoints = 1;
-		int  result = chInterface.addMerchantFavCustomer(cuserId, merchantId, custAccountNo, bonuspoints);
-		System.out.println("result "+result);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void addMerchantFavCustomer_ThrowsException() throws CbsInterfaceException, CbsException {
+//		int cuserId = 10;
+//		int merchantId = 10001;
+//		String custAccountNo = "";
+//		int bonuspoints = 1;
+//		int  result = chInterface.addMerchantFavCustomer(cuserId, merchantId, custAccountNo, bonuspoints);
+//		System.out.println("result "+result);
+//	}
 }

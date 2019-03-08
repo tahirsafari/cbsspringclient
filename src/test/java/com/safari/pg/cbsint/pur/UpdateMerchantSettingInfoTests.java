@@ -29,29 +29,29 @@ public class UpdateMerchantSettingInfoTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
 	
-	@Test
-	public void updateMerchantSettingInfo() throws CbsInterfaceException, CbsException {
-		int createdByUserId = 1;
-		String featureName = "featureName";
-		int featureId = 12;
-
-		boolean  result = chInterface.updateMerchantSettingInfo(featureId, featureName, createdByUserId);
-		System.out.println("result "+result);
-		assertTrue(result);
-	}
-	
-	@Test(expected=CbsInterfaceException.class)
-	public void updateMerchantSettingInfo_ThrowsException() throws CbsInterfaceException, CbsException {
-		int createdByUserId = 1;
-		String featureName = "";
-		int featureId = 12;
-
-		boolean  result = chInterface.updateMerchantSettingInfo(featureId, featureName, createdByUserId);
-		System.out.println("result "+result);
-	}
+//	@Test
+//	public void updateMerchantSettingInfo() throws CbsInterfaceException, CbsException {
+//		int createdByUserId = 1;
+//		String featureName = "featureName";
+//		int featureId = 12;
+//
+//		boolean  result = chInterface.updateMerchantSettingInfo(featureId, featureName, createdByUserId);
+//		System.out.println("result "+result);
+//		assertTrue(result);
+//	}
+//	
+//	@Test(expected=CbsInterfaceException.class)
+//	public void updateMerchantSettingInfo_ThrowsException() throws CbsInterfaceException, CbsException {
+//		int createdByUserId = 1;
+//		String featureName = "";
+//		int featureId = 12;
+//
+//		boolean  result = chInterface.updateMerchantSettingInfo(featureId, featureName, createdByUserId);
+//		System.out.println("result "+result);
+//	}
 }

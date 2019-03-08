@@ -1,7 +1,5 @@
 package com.safari.pg.cbsint.udr;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -15,6 +13,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.safari.pg.cbs.def.CbsException;
+import com.safari.pg.cbs.def.CbsInterfaceException;
 import com.safari.pg.cbsint.CbsAgent;
 import com.safari.pg.cbsint.CbsShInterface;
 import com.todo.TodoApplication;
@@ -30,7 +29,7 @@ public class GetMerchantGroupListTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}

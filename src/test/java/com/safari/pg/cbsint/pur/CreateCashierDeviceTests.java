@@ -29,7 +29,7 @@ public class CreateCashierDeviceTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -49,18 +49,18 @@ public class CreateCashierDeviceTests {
 		assertTrue(result > 0);
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void createCashierDevice_ThrowsException() throws CbsInterfaceException, CbsException {
-		int cuserId = 10;
-		int cashierId = 10001;
-		String manufacturer ="";
-		String serialNo ="serialNo"; 
-		String modelNo = "2013-Model"; 
-		String terminalId = "terminalId"; 
-		int statusId = 1;
-
-		int  result = chInterface.createCashierDevice(cuserId, cashierId, manufacturer, serialNo, modelNo, terminalId, statusId);
-		System.out.println("result "+result);
-		assertTrue(result > 0);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void createCashierDevice_ThrowsException() throws CbsInterfaceException, CbsException {
+//		int cuserId = 10;
+//		int cashierId = 10001;
+//		String manufacturer ="";
+//		String serialNo ="serialNo"; 
+//		String modelNo = "2013-Model"; 
+//		String terminalId = "terminalId"; 
+//		int statusId = 1;
+//
+//		int  result = chInterface.createCashierDevice(cuserId, cashierId, manufacturer, serialNo, modelNo, terminalId, statusId);
+//		System.out.println("result "+result);
+//		assertTrue(result > 0);
+//	}
 }

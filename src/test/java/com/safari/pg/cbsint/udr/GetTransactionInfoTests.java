@@ -30,7 +30,7 @@ public class GetTransactionInfoTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -46,9 +46,9 @@ public class GetTransactionInfoTests {
 		assertNull(chInterface.getTransactionInfo(inValidTransactionId).getCurrency());
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void getTransactionInfo_ThrowsException() throws Exception {
-		int inValidTransactionId = -1000;
-		chInterface.getTransactionInfo(inValidTransactionId);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void getTransactionInfo_ThrowsException() throws Exception {
+//		int inValidTransactionId = -1000;
+//		chInterface.getTransactionInfo(inValidTransactionId);
+//	}
 }

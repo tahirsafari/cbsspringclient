@@ -53,21 +53,21 @@ public class UpdateServiceProfileTests {
 		assertTrue(result);
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void updateServiceProfile_ThrowsException() throws Exception {
-		int serviceId = 2;
-		String serviceProfileDesc = "";
-		int serviceChargeModeId = 1;
-		int maxOutTxAmount = 10;
-		int minOutTxAmount = 2;
-		int maxInTxAmount = 10;
-		int minInTxAmount = 5;
-		int dailyInTxLimit = 12;
-		int dailyOutTxLimit = 13;
-		int monthlyInTxLimit = 5;
-		int monthlyOutTxLimit = 6;
-		
-		boolean  result = chInterface.updateServiceProfile(serviceId, serviceProfileDesc, serviceChargeModeId, maxOutTxAmount, minOutTxAmount, maxInTxAmount, minInTxAmount, dailyInTxLimit, dailyOutTxLimit, monthlyInTxLimit, monthlyOutTxLimit);
-		System.out.println("result "+result);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void updateServiceProfile_ThrowsException() throws Exception {
+//		int serviceId = 2;
+//		String serviceProfileDesc = "";
+//		int serviceChargeModeId = 1;
+//		int maxOutTxAmount = 10;
+//		int minOutTxAmount = 2;
+//		int maxInTxAmount = 10;
+//		int minInTxAmount = 5;
+//		int dailyInTxLimit = 12;
+//		int dailyOutTxLimit = 13;
+//		int monthlyInTxLimit = 5;
+//		int monthlyOutTxLimit = 6;
+//		
+//		boolean  result = chInterface.updateServiceProfile(serviceId, serviceProfileDesc, serviceChargeModeId, maxOutTxAmount, minOutTxAmount, maxInTxAmount, minInTxAmount, dailyInTxLimit, dailyOutTxLimit, monthlyInTxLimit, monthlyOutTxLimit);
+//		System.out.println("result "+result);
+//	}
 }

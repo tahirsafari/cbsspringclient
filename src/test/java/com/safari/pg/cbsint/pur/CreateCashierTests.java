@@ -29,7 +29,7 @@ public class CreateCashierTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -61,29 +61,29 @@ public class CreateCashierTests {
 		assertTrue(result > 0);
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void createCashier_ThrowsException() throws CbsInterfaceException, CbsException {
-		int cuserId = 10;
-		int merchantId = 10001;
-		int cashierTypeId =1;
-		String fname ="fname";
-		String mname =""; 
-		String lname = "lname"; 
-		String email = "test@mail.com"; 
-		String tel = "12345";
-		String addr = "addr";
-		String addr2 = "addr2"; 
-		String city = "city"; 
-		String country = "country"; 
-		String website = "www.website.com";
-		String loginId = "loginId";
-		String loginPwd = "pwd";
-		String userTitle = "userTitle";
-		int userTypeId = 1;
-		int statusId = 1;
-		String activationToken = "token";
-		String secretKey = "key";
-		int  result = chInterface.createCashier(cuserId, merchantId, cashierTypeId, fname, mname, lname, email, tel, addr, addr2, city, country, website, loginId, loginPwd, userTitle, userTypeId, statusId, activationToken, secretKey);
-		System.out.println("result "+result);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void createCashier_ThrowsException() throws CbsInterfaceException, CbsException {
+//		int cuserId = 10;
+//		int merchantId = 10001;
+//		int cashierTypeId =1;
+//		String fname ="fname";
+//		String mname =""; 
+//		String lname = "lname"; 
+//		String email = "test@mail.com"; 
+//		String tel = "12345";
+//		String addr = "addr";
+//		String addr2 = "addr2"; 
+//		String city = "city"; 
+//		String country = "country"; 
+//		String website = "www.website.com";
+//		String loginId = "loginId";
+//		String loginPwd = "pwd";
+//		String userTitle = "userTitle";
+//		int userTypeId = 1;
+//		int statusId = 1;
+//		String activationToken = "token";
+//		String secretKey = "key";
+//		int  result = chInterface.createCashier(cuserId, merchantId, cashierTypeId, fname, mname, lname, email, tel, addr, addr2, city, country, website, loginId, loginPwd, userTitle, userTypeId, statusId, activationToken, secretKey);
+//		System.out.println("result "+result);
+//	}
 }

@@ -29,7 +29,7 @@ public class UpdateTranStatusTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -44,12 +44,12 @@ public class UpdateTranStatusTests {
 		assertTrue(result );
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void updateTranStatus_ThrowsException() throws CbsInterfaceException, CbsException {
-		int statusId = 1;
-		int transactionId = -12344;
-
-		boolean  result = chInterface.updateTranStatus(transactionId, statusId);
-		System.out.println("result "+result);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void updateTranStatus_ThrowsException() throws CbsInterfaceException, CbsException {
+//		int statusId = 1;
+//		int transactionId = -12344;
+//
+//		boolean  result = chInterface.updateTranStatus(transactionId, statusId);
+//		System.out.println("result "+result);
+//	}
 }

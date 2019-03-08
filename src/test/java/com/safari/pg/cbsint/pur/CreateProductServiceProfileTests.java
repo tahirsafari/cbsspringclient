@@ -54,23 +54,23 @@ public class CreateProductServiceProfileTests {
 		assertTrue(result > 0);
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void createProductServiceProfile_ThrowsException() throws Exception {
-		int createdByUserId = 1;
-		int serviceId = 2;
-		int productId = 1;
-		String serviceProfileDesc = "";
-		int serviceChargeModeId = 1;
-		int maxOutTxAmount = 10;
-		int minOutTxAmount = 2;
-		int maxInTxAmount = 10;
-		int minInTxAmount = 5;
-		int dailyInTxLimit = 12;
-		int dailyOutTxLimit = 13;
-		int monthlyInTxLimit = 5;
-		int monthlyOutTxLimit = 6;
-		
-		int  result = chInterface.createProductServiceProfile(createdByUserId, productId, serviceId, serviceProfileDesc, serviceChargeModeId, maxOutTxAmount, minOutTxAmount, maxInTxAmount, minInTxAmount, dailyInTxLimit, dailyOutTxLimit, monthlyInTxLimit, monthlyOutTxLimit);
-		System.out.println("result "+result);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void createProductServiceProfile_ThrowsException() throws Exception {
+//		int createdByUserId = 1;
+//		int serviceId = 2;
+//		int productId = 1;
+//		String serviceProfileDesc = "";
+//		int serviceChargeModeId = 1;
+//		int maxOutTxAmount = 10;
+//		int minOutTxAmount = 2;
+//		int maxInTxAmount = 10;
+//		int minInTxAmount = 5;
+//		int dailyInTxLimit = 12;
+//		int dailyOutTxLimit = 13;
+//		int monthlyInTxLimit = 5;
+//		int monthlyOutTxLimit = 6;
+//		
+//		int  result = chInterface.createProductServiceProfile(createdByUserId, productId, serviceId, serviceProfileDesc, serviceChargeModeId, maxOutTxAmount, minOutTxAmount, maxInTxAmount, minInTxAmount, dailyInTxLimit, dailyOutTxLimit, monthlyInTxLimit, monthlyOutTxLimit);
+//		System.out.println("result "+result);
+//	}
 }

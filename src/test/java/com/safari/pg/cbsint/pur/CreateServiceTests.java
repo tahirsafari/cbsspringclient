@@ -47,16 +47,16 @@ public class CreateServiceTests {
 		assertTrue(result > 0);
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void createService_ThrowsException() throws Exception {
-		String serviceCode = "";
-		String serviceProfileDesc = "desc";
-		int isActive = 1;
-		int isTransactional = 10;
-		int createdByUserId = 1;
-	
-		int  result = chInterface.createService(serviceCode, serviceProfileDesc, isActive, isTransactional, createdByUserId);
-		System.out.println("result "+result);
-		assertTrue(result > 0);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void createService_ThrowsException() throws Exception {
+//		String serviceCode = "";
+//		String serviceProfileDesc = "desc";
+//		int isActive = 1;
+//		int isTransactional = 10;
+//		int createdByUserId = 1;
+//	
+//		int  result = chInterface.createService(serviceCode, serviceProfileDesc, isActive, isTransactional, createdByUserId);
+//		System.out.println("result "+result);
+//		assertTrue(result > 0);
+//	}
 }

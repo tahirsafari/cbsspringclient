@@ -30,7 +30,7 @@ public class GetBankInfoTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -46,9 +46,9 @@ public class GetBankInfoTests {
 		assertNull(chInterface.getBankInfo(inValidBankId).getBankCode());
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void getBankInfo_ThrowsException() throws Exception {
-		int inValidBankId = -1000;
-		chInterface.getBankInfo(inValidBankId);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void getBankInfo_ThrowsException() throws Exception {
+//		int inValidBankId = -1000;
+//		chInterface.getBankInfo(inValidBankId);
+//	}
 }

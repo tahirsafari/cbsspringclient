@@ -29,7 +29,7 @@ public class GetMerchantOrderResultTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -41,9 +41,9 @@ public class GetMerchantOrderResultTests {
 	}
 	
 
-	@Test(expected=CbsInterfaceException.class)
-	public void getMerchantOrderResult_ThrowsException() throws Exception {
-		int orderId = -10001;
-		chInterface.getMerchantOrderResult(orderId);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void getMerchantOrderResult_ThrowsException() throws Exception {
+//		int orderId = -10001;
+//		chInterface.getMerchantOrderResult(orderId);
+//	}
 }

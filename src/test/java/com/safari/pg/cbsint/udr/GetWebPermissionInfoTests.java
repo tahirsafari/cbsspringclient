@@ -29,7 +29,7 @@ public class GetWebPermissionInfoTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -41,9 +41,9 @@ public class GetWebPermissionInfoTests {
 	}
 	
 
-	@Test(expected=CbsInterfaceException.class)
-	public void getWebPermissionInfo_ThrowsException() throws Exception {
-		int id = -10001;
-		chInterface.getWebPermissionInfo(id);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void getWebPermissionInfo_ThrowsException() throws Exception {
+//		int id = -10001;
+//		chInterface.getWebPermissionInfo(id);
+//	}
 }

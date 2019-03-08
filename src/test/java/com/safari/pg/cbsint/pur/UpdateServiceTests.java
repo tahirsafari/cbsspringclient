@@ -47,14 +47,14 @@ public class UpdateServiceTests {
 		assertTrue(result);
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void updateService_ThrowsException() throws Exception {
-		String serviceCode = "";
-		int serviceId = 1;
-		String serviceProfileDesc = "desc";
-		int isActive = 1;
-		int isTransactional = 10;
-	
-		chInterface.updateService(serviceId, serviceCode, serviceProfileDesc, isActive, isTransactional);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void updateService_ThrowsException() throws Exception {
+//		String serviceCode = "";
+//		int serviceId = 1;
+//		String serviceProfileDesc = "desc";
+//		int isActive = 1;
+//		int isTransactional = 10;
+//	
+//		chInterface.updateService(serviceId, serviceCode, serviceProfileDesc, isActive, isTransactional);
+//	}
 }

@@ -1,6 +1,5 @@
 package com.safari.pg.cbsint.udr;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -30,7 +29,7 @@ public class GetProductServiceRatesTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -42,9 +41,9 @@ public class GetProductServiceRatesTests {
 	}
 	
 
-	@Test(expected=CbsInterfaceException.class)
-	public void getProductServiceRates_ThrowsException() throws Exception {
-		int serviceProfileId = -10001;
-		chInterface.getProductServiceRates(serviceProfileId);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void getProductServiceRates_ThrowsException() throws Exception {
+//		int serviceProfileId = -10001;
+//		chInterface.getProductServiceRates(serviceProfileId);
+//	}
 }

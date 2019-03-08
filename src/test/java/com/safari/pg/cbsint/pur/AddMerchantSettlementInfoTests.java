@@ -29,7 +29,7 @@ public class AddMerchantSettlementInfoTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -46,14 +46,14 @@ public class AddMerchantSettlementInfoTests {
 		assertTrue(result > 0);
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void addMerchantSettlementInfo_ThrowsException() throws CbsInterfaceException, CbsException {
-		int bankId = 10;
-		int merchantId = 10001;
-		String settlementAcc = "";
-		int settlementModeId = 1;
-		int settlementCycleId = 1;
-		int  result = chInterface.addMerchantSettlementInfo(merchantId, bankId, settlementAcc, settlementModeId, settlementCycleId);
-		System.out.println("result "+result);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void addMerchantSettlementInfo_ThrowsException() throws CbsInterfaceException, CbsException {
+//		int bankId = 10;
+//		int merchantId = 10001;
+//		String settlementAcc = "";
+//		int settlementModeId = 1;
+//		int settlementCycleId = 1;
+//		int  result = chInterface.addMerchantSettlementInfo(merchantId, bankId, settlementAcc, settlementModeId, settlementCycleId);
+//		System.out.println("result "+result);
+//	}
 }

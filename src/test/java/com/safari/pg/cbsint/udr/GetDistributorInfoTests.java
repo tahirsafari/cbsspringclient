@@ -29,20 +29,20 @@ public class GetDistributorInfoTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
 	// deserialization issue in cbs lib
 	@Test
 	public void getDistributorInfo() throws Exception {
-//		int validDistributorId = 1001;
-//		assertNotNull(chInterface.getCashierInfo(validDistributorId).getAddress());
+		int validDistributorId = 1001;
+		assertNotNull(chInterface.getCashierInfo(validDistributorId).getAddress());
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void getDistributorInfo_ThrowsException() throws Exception {
-		int invalidDistributorId = -1001;
-		assertNotNull(chInterface.getCashierInfo(invalidDistributorId).getAddress());
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void getDistributorInfo_ThrowsException() throws Exception {
+//		int invalidDistributorId = -1001;
+//		assertNotNull(chInterface.getCashierInfo(invalidDistributorId).getAddress());
+//	}
 }

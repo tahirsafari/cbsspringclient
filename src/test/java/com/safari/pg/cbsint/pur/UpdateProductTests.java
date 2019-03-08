@@ -29,7 +29,7 @@ public class UpdateProductTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -47,15 +47,15 @@ public class UpdateProductTests {
 		assertTrue(result);
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void updateProduct_ThrowsException() throws CbsInterfaceException, CbsException {
-		String productName = "";
-		String productDesc = "productDesc";
-		int productOwner = 1;
-		int productType = 1;
-		int productId = 1;
-		
-		boolean  result = chInterface.updateProduct(productId, productName, productDesc, productOwner, productType);
-		System.out.println("result "+result);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void updateProduct_ThrowsException() throws CbsInterfaceException, CbsException {
+//		String productName = "";
+//		String productDesc = "productDesc";
+//		int productOwner = 1;
+//		int productType = 1;
+//		int productId = 1;
+//		
+//		boolean  result = chInterface.updateProduct(productId, productName, productDesc, productOwner, productType);
+//		System.out.println("result "+result);
+//	}
 }

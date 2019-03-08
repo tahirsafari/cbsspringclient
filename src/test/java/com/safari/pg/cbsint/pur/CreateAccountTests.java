@@ -29,7 +29,7 @@ public class CreateAccountTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -47,15 +47,15 @@ public class CreateAccountTests {
 		assertTrue(result > 0);
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void createAccount_ThrowsException() throws CbsInterfaceException, CbsException {
-		int userId = 10;
-		String accountNo = "";
-		int accountTypeId = 1;
-		int createdByUserId = 10;
-		String currency = "USD";
-
-		int  result = chInterface.createAccount(userId, accountNo, accountTypeId, createdByUserId, currency);
-		System.out.println("result "+result);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void createAccount_ThrowsException() throws CbsInterfaceException, CbsException {
+//		int userId = 10;
+//		String accountNo = "";
+//		int accountTypeId = 1;
+//		int createdByUserId = 10;
+//		String currency = "USD";
+//
+//		int  result = chInterface.createAccount(userId, accountNo, accountTypeId, createdByUserId, currency);
+//		System.out.println("result "+result);
+//	}
 }

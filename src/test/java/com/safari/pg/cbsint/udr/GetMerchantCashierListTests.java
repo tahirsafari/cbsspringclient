@@ -1,6 +1,5 @@
 package com.safari.pg.cbsint.udr;
 
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Before;
@@ -30,7 +29,7 @@ public class GetMerchantCashierListTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -41,9 +40,9 @@ public class GetMerchantCashierListTests {
 		assertTrue(chInterface.getMerchantCashierList(merchantId).size() > 0);
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void getMerchantCashierList_ThrowsException() throws Exception {
-		int merchantId = -10001;
-		chInterface.getMerchantCashierList(merchantId);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void getMerchantCashierList_ThrowsException() throws Exception {
+//		int merchantId = -10001;
+//		chInterface.getMerchantCashierList(merchantId);
+//	}
 }

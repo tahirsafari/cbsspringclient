@@ -29,7 +29,7 @@ public class CreateUserTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -53,21 +53,21 @@ public class CreateUserTests {
 		assertTrue(result > 0 );
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void createUser_ThrowsException() throws CbsInterfaceException, CbsException {
-		int cuserId = 100;
-		String fname = "fname";
-		String mname = "mname";
-		String lname = "";
-		String email = "test@mail.com";
-		String tel = "1234-1";
-		String addr = "address";
-		String loginId = "loginid";
-		String loginPwd = "pwd";
-		String userTitle = "titile";
-		int userTypeId = 1;
-
-		int  result = chInterface.createUser(cuserId, fname, mname, lname, email, tel, addr, loginId, loginPwd, userTitle, userTypeId);
-		System.out.println("result "+result);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void createUser_ThrowsException() throws CbsInterfaceException, CbsException {
+//		int cuserId = 100;
+//		String fname = "fname";
+//		String mname = "mname";
+//		String lname = "";
+//		String email = "test@mail.com";
+//		String tel = "1234-1";
+//		String addr = "address";
+//		String loginId = "loginid";
+//		String loginPwd = "pwd";
+//		String userTitle = "titile";
+//		int userTypeId = 1;
+//
+//		int  result = chInterface.createUser(cuserId, fname, mname, lname, email, tel, addr, loginId, loginPwd, userTitle, userTypeId);
+//		System.out.println("result "+result);
+//	}
 }

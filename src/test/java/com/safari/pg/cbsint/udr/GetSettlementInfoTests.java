@@ -2,7 +2,6 @@ package com.safari.pg.cbsint.udr;
 
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
-import static org.junit.Assert.assertNotNull;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -31,7 +30,7 @@ public class GetSettlementInfoTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -46,9 +45,9 @@ public class GetSettlementInfoTests {
 		assertNotEquals(inValidSettlementId, chInterface.getSettlementInfo(inValidSettlementId).getSettlementId());
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void getSettlementInfo_ThrowsException() throws Exception {
-		int inValidSettlementId = -1000;
-		assertNotEquals(inValidSettlementId, chInterface.getSettlementInfo(inValidSettlementId).getSettlementId());
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void getSettlementInfo_ThrowsException() throws Exception {
+//		int inValidSettlementId = -1000;
+//		assertNotEquals(inValidSettlementId, chInterface.getSettlementInfo(inValidSettlementId).getSettlementId());
+//	}
 }

@@ -29,7 +29,7 @@ public class GetSettlementsTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -42,11 +42,11 @@ public class GetSettlementsTests {
 		assertTrue(chInterface.getSettlements(statusId, recCount, merchantId).size() > 0);
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void getSettlements_ThrowsException() throws Exception {
-		int statusId = -3;
-		int recCount = 2;
-		int merchantId= 10001;
-		chInterface.getSettlements(statusId, recCount, merchantId);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void getSettlements_ThrowsException() throws Exception {
+//		int statusId = -3;
+//		int recCount = 2;
+//		int merchantId= 10001;
+//		chInterface.getSettlements(statusId, recCount, merchantId);
+//	}
 }

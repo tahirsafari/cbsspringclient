@@ -32,7 +32,7 @@ public class GetMerchantTransactionsByUidTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -50,12 +50,12 @@ public class GetMerchantTransactionsByUidTests {
 	}
 	
 
-	@Test(expected=CbsInterfaceException.class)
-	public void getMerchantTransactionsByUid_ThrowsException() throws Exception {
-		String merchantId = null;
-		int statusId = 2; 
-		int recordCount = 2;
-
-		chInterface.getMerchantTransactionsByUid(merchantId, statusId, recordCount, null, null);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void getMerchantTransactionsByUid_ThrowsException() throws Exception {
+//		String merchantId = null;
+//		int statusId = 2; 
+//		int recordCount = 2;
+//
+//		chInterface.getMerchantTransactionsByUid(merchantId, statusId, recordCount, null, null);
+//	}
 }

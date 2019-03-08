@@ -29,7 +29,7 @@ public class UpdateBankTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -47,15 +47,15 @@ public class UpdateBankTests {
 		assertTrue(result);
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void updateBank_ThrowsException() throws CbsInterfaceException, CbsException {
-		String bankName ="bankName";
-		String bankCode ="bankCode"; 
-		String addr = "";
-		int ppid = 1;
-		int bankId = 1014;
-
-		boolean  result = chInterface.updateBank(bankId, bankName, bankCode, addr, ppid);
-		System.out.println("result "+result);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void updateBank_ThrowsException() throws CbsInterfaceException, CbsException {
+//		String bankName ="bankName";
+//		String bankCode ="bankCode"; 
+//		String addr = "";
+//		int ppid = 1;
+//		int bankId = 1014;
+//
+//		boolean  result = chInterface.updateBank(bankId, bankName, bankCode, addr, ppid);
+//		System.out.println("result "+result);
+//	}
 }

@@ -29,7 +29,7 @@ public class UpdateMerchantGroupTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -46,15 +46,15 @@ public class UpdateMerchantGroupTests {
 		assertTrue(result);
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void updateMerchantGroup_ThrowsException() throws CbsInterfaceException, CbsException {
-		String groupName = "";
-		String groupDesc = "desc";
-		int createdByUserId = 100;
-		int merchantGroupId = -10;
-		
-		boolean  result = chInterface.updateMerchantGroup(merchantGroupId, groupName, groupDesc, createdByUserId);
-		System.out.println("result "+result);
-		assertTrue(result);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void updateMerchantGroup_ThrowsException() throws CbsInterfaceException, CbsException {
+//		String groupName = "";
+//		String groupDesc = "desc";
+//		int createdByUserId = 100;
+//		int merchantGroupId = -10;
+//		
+//		boolean  result = chInterface.updateMerchantGroup(merchantGroupId, groupName, groupDesc, createdByUserId);
+//		System.out.println("result "+result);
+//		assertTrue(result);
+//	}
 }

@@ -29,7 +29,7 @@ public class GetMerchantInfoByUidTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -41,9 +41,9 @@ public class GetMerchantInfoByUidTests {
 	}
 	
 
-	@Test(expected=CbsInterfaceException.class)
-	public void getMerchantInfoByUid_ThrowsException() throws Exception {
-		String merchantId = "";
-		chInterface.getMerchantInfoByUid(merchantId);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void getMerchantInfoByUid_ThrowsException() throws Exception {
+//		String merchantId = "";
+//		chInterface.getMerchantInfoByUid(merchantId);
+//	}
 }

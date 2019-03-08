@@ -29,7 +29,7 @@ public class UpdateDistributorTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -56,24 +56,24 @@ public class UpdateDistributorTests {
 		assertTrue(result );
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void updateDistributor_ThrowsException() throws CbsInterfaceException, CbsException {
-		int cuserId = 100;
-		int distributorId = 12;
-		String fname = "fname";
-		String mname = "mname";
-		String lname = "lname";
-		String email = "test@mail.com";
-		String tel = "";
-		String addr = "address";
-		String addr2 = "address2";
-		String userTitle = "titile";
-		String city = "NY";
-		String country = "USA";
-		String website = "www.website.com";
-
-
-		boolean  result = chInterface.updateDistributor(cuserId, distributorId,  fname, mname, lname, email, tel, addr, addr2, city, country, website, userTitle);
-		System.out.println("result "+result);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void updateDistributor_ThrowsException() throws CbsInterfaceException, CbsException {
+//		int cuserId = 100;
+//		int distributorId = 12;
+//		String fname = "fname";
+//		String mname = "mname";
+//		String lname = "lname";
+//		String email = "test@mail.com";
+//		String tel = "";
+//		String addr = "address";
+//		String addr2 = "address2";
+//		String userTitle = "titile";
+//		String city = "NY";
+//		String country = "USA";
+//		String website = "www.website.com";
+//
+//
+//		boolean  result = chInterface.updateDistributor(cuserId, distributorId,  fname, mname, lname, email, tel, addr, addr2, city, country, website, userTitle);
+//		System.out.println("result "+result);
+//	}
 }

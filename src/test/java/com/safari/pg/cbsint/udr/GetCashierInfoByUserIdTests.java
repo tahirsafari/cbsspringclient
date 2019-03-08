@@ -29,7 +29,7 @@ public class GetCashierInfoByUserIdTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -40,9 +40,9 @@ public class GetCashierInfoByUserIdTests {
 		assertNotNull(chInterface.getCashierInfoByUserId(validUserId).getAddress());
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void getCashierInfo_ThrowsException() throws Exception {
-		int invalidCashierId = -2000001;
-		chInterface.getCashierInfoByUserId(invalidCashierId);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void getCashierInfo_ThrowsException() throws Exception {
+//		int invalidCashierId = -2000001;
+//		chInterface.getCashierInfoByUserId(invalidCashierId);
+//	}
 }

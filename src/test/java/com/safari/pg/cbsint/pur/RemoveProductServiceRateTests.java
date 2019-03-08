@@ -2,10 +2,6 @@ package com.safari.pg.cbsint.pur;
 
 import static org.junit.Assert.assertTrue;
 
-import java.sql.Date;
-import java.time.Instant;
-import java.util.Calendar;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -33,7 +29,7 @@ public class RemoveProductServiceRateTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -48,12 +44,12 @@ public class RemoveProductServiceRateTests {
 		assertTrue(result);
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void removeProductServiceRate_ThrowsException() throws CbsInterfaceException, CbsException {
-		int cuserId = -10;
-		int rateId = 1;
-		
-		boolean  result = chInterface.removeProductServiceRate(cuserId, rateId);
-		System.out.println("result "+result);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void removeProductServiceRate_ThrowsException() throws CbsInterfaceException, CbsException {
+//		int cuserId = -10;
+//		int rateId = 1;
+//		
+//		boolean  result = chInterface.removeProductServiceRate(cuserId, rateId);
+//		System.out.println("result "+result);
+//	}
 }

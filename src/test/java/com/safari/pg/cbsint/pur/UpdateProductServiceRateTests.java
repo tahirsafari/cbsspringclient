@@ -33,7 +33,7 @@ public class UpdateProductServiceRateTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -57,18 +57,18 @@ public class UpdateProductServiceRateTests {
 		assertTrue(result);
 	}
 	
-	@Test(expected=CbsInterfaceException.class)
-	public void updateProductServiceRate_ThrowsException() throws CbsInterfaceException, CbsException {
-		int rateId = 10;
-		double senderRate = -100;
-		int senderRateTypeId = -1;
-		double rcvRate = 12;
-		int rcvRateTypeId = 1;
-		double minTxAmt = 1;
-		double maxTxAmt = 2;
-		Date effdate = new Date(Instant.now().toEpochMilli());
-		Date expdate = new Date(Instant.now().toEpochMilli());
-		boolean  result = chInterface.updateProductServiceRate(rateId, senderRate, senderRateTypeId, rcvRate, rcvRateTypeId, minTxAmt, maxTxAmt, effdate, expdate);
-		System.out.println("result "+result);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void updateProductServiceRate_ThrowsException() throws CbsInterfaceException, CbsException {
+//		int rateId = 10;
+//		double senderRate = -100;
+//		int senderRateTypeId = -1;
+//		double rcvRate = 12;
+//		int rcvRateTypeId = 1;
+//		double minTxAmt = 1;
+//		double maxTxAmt = 2;
+//		Date effdate = new Date(Instant.now().toEpochMilli());
+//		Date expdate = new Date(Instant.now().toEpochMilli());
+//		boolean  result = chInterface.updateProductServiceRate(rateId, senderRate, senderRateTypeId, rcvRate, rcvRateTypeId, minTxAmt, maxTxAmt, effdate, expdate);
+//		System.out.println("result "+result);
+//	}
 }

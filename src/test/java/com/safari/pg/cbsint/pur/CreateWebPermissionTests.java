@@ -1,5 +1,7 @@
 package com.safari.pg.cbsint.pur;
 
+import static org.junit.Assert.assertTrue;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -11,14 +13,12 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import com.safari.pg.cbs.def.CbsException;
-import com.todo.TodoApplication;
-import com.todo.dtos.WebPermissionDto;
-
-import junit.framework.Assert;
-
 import com.safari.pg.cbs.def.CbsInterfaceException;
 import com.safari.pg.cbsint.CbsAgent;
 import com.safari.pg.cbsint.CbsShInterface;
+import com.todo.TodoApplication;
+import com.todo.dtos.WebPermissionDto;
+
 
 @RunWith(SpringRunner.class)
 @ActiveProfiles(value="test")
@@ -31,7 +31,7 @@ public class CreateWebPermissionTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -63,6 +63,6 @@ public class CreateWebPermissionTests {
 	public void createWebPermission_success() throws CbsInterfaceException {
 		WebPermissionDto permissionDto = new WebPermissionDto(100, "Test", "Desc");
 		int result = chInterface.createWebPermission(permissionDto.getUserId(), permissionDto.getName(), permissionDto.getDesc());
-		Assert.assertTrue(result > 0);
+		assertTrue(result > 0);
 	}
 }

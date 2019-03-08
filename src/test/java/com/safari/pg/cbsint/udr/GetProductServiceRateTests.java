@@ -29,7 +29,7 @@ public class GetProductServiceRateTests {
 	CbsShInterface chInterface;
 	
 	@Before
-	public void setup() throws CbsException {
+	public void setup() throws CbsException, CbsInterfaceException {
 		this.ca = new CbsAgent(jdbcTemplate);
     	this.chInterface = new  CbsShInterface(this.ca);
 	}
@@ -41,9 +41,9 @@ public class GetProductServiceRateTests {
 	}
 	
 
-	@Test(expected=CbsInterfaceException.class)
-	public void getProductServiceRate_ThrowsException() throws Exception {
-		int rateId = -10001;
-		chInterface.getProductServiceRate(rateId);
-	}
+//	@Test(expected=CbsInterfaceException.class)
+//	public void getProductServiceRate_ThrowsException() throws Exception {
+//		int rateId = -10001;
+//		chInterface.getProductServiceRate(rateId);
+//	}
 }
